@@ -1,4 +1,4 @@
-$(document).ready(function () {
+function main () {
 	const welcomeText = `Welcome! This is an offline-capable Notepad which is a Progressive Web App.
 
 The app serves the following features:
@@ -326,4 +326,12 @@ window.addEventListener('appinstalled', () => {
 	const source = installSource || 'browser';
 
 	ga('send', 'event', 'pwa-install', 'installed', source);
+}
+
+
+$(document).ready(function() {
+	getExternalState('note').then(res => {
+		setNoteData(res)
+		main()
+	});
 });
