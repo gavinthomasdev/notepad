@@ -1,6 +1,12 @@
+let noteData = ""
+
+function setNoteData(data) {
+    noteData = data
+}
+    
 function getState(state) {
     if (state == "note") {
-        return getExternalState(state, value)
+        return noteData
     }
     return localStorage.getItem(state);
 }
@@ -88,6 +94,9 @@ function selector() {
         get,
         getState,
         setState,
+        setExternalState,
+        getExternalState,
+        setNoteData,
         removeState,
         selectById,
         selectByClassName
