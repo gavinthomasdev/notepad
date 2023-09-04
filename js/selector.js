@@ -38,12 +38,12 @@ function getNoteName() {
     return window.location.search.length > 0 ? window.location.search.substring(1) : "default"
 }
 
-function getExternalState(state) {
+function getExternalState(state, callback) {
     const data = {
         action: "set",
         data: getNoteName()
     }
-    return chrome.runtime.sendMessage("ojcedbmgmccbhpepdagjifadaaiimbej", data)
+    return chrome.runtime.sendMessage("ojcedbmgmccbhpepdagjifadaaiimbej", data, callback)
 }
 
 function setExternalState(state, value) {
