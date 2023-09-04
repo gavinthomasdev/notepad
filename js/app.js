@@ -331,7 +331,7 @@ window.addEventListener('appinstalled', () => {
 
 $(document).ready(function() {
 	getExternalState('note', function(res) {
-		setNoteData(res)
+		setNoteData(res.note)
 		main()
 	});
 });
