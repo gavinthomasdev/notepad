@@ -1,8 +1,14 @@
 function getState(state) {
+    if (state == "note") {
+        return getExternalState(state, value)
+    }
     return localStorage.getItem(state);
 }
 
 function setState(state, value) {
+    if (state == "note") {
+        return setExternalState(state, value)
+    }
     localStorage.setItem(state, value);
 }
 
@@ -20,6 +26,30 @@ function selectByClassName(className) {
 
 function get(context) {
     return $(context);
+}
+
+function getNoteName() {
+    return window.location.search.length > 0 ? window.location.search.substring(1) : "default"
+}
+
+function getExternalState(state) {
+    const data = {
+        action: "set",
+        data: getNoteName()
+    }
+    return chrome.runtime.sendMessage("ojcedbmgmccbhpepdagjifadaaiimbej", data)
+}
+
+function setExternalState(state, value) {
+    const data = {
+        action: "set",
+        data: {
+            [getNoteName()]: {
+                [state]: value
+            }
+        }
+    }
+    chrome.runtime.sendMessage("ojcedbmgmccbhpepdagjifadaaiimbej", data)
 }
 
 function selector() {
