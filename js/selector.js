@@ -40,7 +40,7 @@ function getNoteName() {
 
 function getExternalState(state, callback) {
     const data = {
-        action: "set",
+        action: "get",
         data: getNoteName()
     }
     return chrome.runtime.sendMessage("ojcedbmgmccbhpepdagjifadaaiimbej", data, callback)
