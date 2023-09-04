@@ -262,7 +262,7 @@ it's recommended that you take a backup of your notes more often using the
 			copyNotesToClipboard(notepad.note.val());
 		}
 	};
-});
+}
 
 // Registering ServiceWorker
 if ('serviceWorker' in navigator) {
@@ -326,7 +326,7 @@ window.addEventListener('appinstalled', () => {
 	const source = installSource || 'browser';
 
 	ga('send', 'event', 'pwa-install', 'installed', source);
-}
+});
 
 
 $(document).ready(function() {
